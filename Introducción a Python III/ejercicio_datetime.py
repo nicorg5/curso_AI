@@ -21,3 +21,8 @@ elif dia_semana == 5:
     print('El Celta de Vigo se fundó un sábado')
 elif dia_semana== 6:
     print('El Celta de Vigo se fundó un domingo')
+
+
+# Otra alternativa: resolución con una lista
+lista_dias_semana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+print(f"El Celta de Vigo se fundó un {lista_dias_semana[dia_semana]}")
