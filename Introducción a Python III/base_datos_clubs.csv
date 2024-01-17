@@ -1,0 +1,3 @@
+Deporte,Descripcion,Club,Ciudad,Fecha de creación del club,Presidente,Plantilla
+Fútbol,Deporte 11 vs 11 en el que hay que meter el balón en la portería contraria,Real Madrid,Madrid,1902-03-06 00:00:00,Florentino Pérez,"['Kepa', 'Carvajal', 'Vinicius', 'Iago Aspas', 'Mbappe']"
+Baloncesto,"Deporte 5 vs 5 que consiste en introducir un balón, que dará punto, en un aro ubicado a 3 metros de altura.",Bilbao Basket,Bilbao,2000-04-07 00:00:00,Jon Uriarte,"['Adam Smith', 'Tomeu Rigo', 'Alex Reyes', 'Xabi Rabaseda']"
