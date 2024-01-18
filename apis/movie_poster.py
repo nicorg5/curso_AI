@@ -8,6 +8,7 @@ import io
 # Cargar variables de entorno desde .env
 load_dotenv()
 
+
 #url_omdb = "http://www.omdbapi.com/?apikey=" + os.getenv("OMDB_API_KEY") + "&t="
 url_omdb = os.getenv("API_URL") + os.getenv("OMDB_API_KEY") + "&t="
 
