@@ -54,3 +54,50 @@ Resume el texto delimitado por triples acentos graves: ```{text_2}```
 """
 response = get_completion_json(prompt) 
 print(response.choices[0].message.content)
+
+
+# Ejemplo en el que el formato de salida van a ser instrucciones. Se usa una receta como input y se espera que el output sean los pasos de la misma
+def get_completion_pasos(prompt):
+    completion = client.chat.completions.create( 
+        model=engine,
+        messages=[
+            {"role": "user", "content": f"{prompt}"} ]
+        )
+    return completion 
+receta = f"""
+Mezcla en un tazón apto para microondas 4 cucharadas de azúcar, 2 cucharadas de harina, 2 cucharadas de cacao puro en polvo, una \ pizca de sal y 1/4 de cucharadita de levadura. Añade un huevo batido y 2 cucharadas de aceite de oliva. Remueve bien hasta \ obtener una masa uniforme. Si deseas, puedes agregar chispas de chocolate o nueces al gusto. Una vez mezclado, aplana la \ superficie con una cuchara. Cocina en el microondas a máxima potencia durante aproximadamente 1 minuto. Mantén un ojo en él \ microondas para evitar que se reseque. Deja enfriar un poco antes de comer, ya que estará muy caliente.
+"""
+prompt = f"""
+Te proporcionaré un texto en comillas triples
+Si contiene una secuencia de instrucciones, \
+re-escribe esas instrucciones en el siguiente formato:
+Paso 1 - ...
+Paso 2 - …
+…
+Paso N - …
+Si el texto no contiene una secuencia de instrucciones, \ entonces simplemente escribe \"No se proporcionan instrucciones.\" \"\"\"{receta}\"\"\"
+"""
+response = get_completion_pasos(prompt)
+print("Respuesta para receta:") 
+print(response.choices[0].message.content)
+
+
+# Ejemplo de uso de get_completion_pasos para que devuelva "No se proporcionan instrucciones"
+texto = f"""
+En un día cálido de primavera, el prado se despliega como un tapiz de flores silvestres, \ pintando el campo con pinceladas de amarillo, rosa y azul. El aire está impregnado del \
+dulce aroma de la lavanda y el jazmín. El lindero del bosque cercano proporciona un contraste \ sereno, con sus árboles altos y robustos que parecen susurrar secretos con el viento. La brisa \ suave acaricia tu piel, invocando una sensación de paz inmediata. El trino de los pájaros \
+se mezcla con el murmullo de un arroyo cercano, creando una sinfonía natural que parece celebrar \ la renovación de la vida. El mundo aquí es un remanso de tranquilidad y belleza simple.
+"""
+prompt = f"""
+Te proporcionaré un texto en comillas triples
+Si contiene una secuencia de instrucciones, \
+re-escribe esas instrucciones en el siguiente formato:
+Paso 1 - ...
+Paso 2 - …
+…
+Paso N - …
+Si el texto no contiene una secuencia de instrucciones, \ entonces simplemente escribe \"No se proporcionan instrucciones.\" \"\"\"{texto}\"\"\"
+"""
+response = get_completion_pasos(prompt) 
+print("Respuesta para texto:") 
+print(response)
