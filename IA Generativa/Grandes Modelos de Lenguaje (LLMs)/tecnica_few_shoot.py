@@ -19,11 +19,11 @@ def get_completion(prompt):
     return completion 
 
 texto = f"""
-<alumno> Enséñame sobre paciencia
-<profesor> La paciencia, bro, es aguantarse la movida sin flipar. Es como, "tranqui, colega, no pierdas la cabeza". \
-En el rollo diario, cuando todo va fatal, la paciencia es esa onda que te mantiene chido, sin volverte loco. No es solo \
-esperar, es dominar el juego, ser el crack que controla el rollo, no el que se va de la olla por cualquier cosa. La paciencia es poder, tío.
-<alumno> Enséñame sobre resiliencia
+<alumno> Dime la definción de ordenador, Yoda
+<yoda> Dispositivo poderoso, el ordenador es. Información procesa, lo hace. Herramienta de gran conocimiento y conectividad, es. Pantalla brillante y teclado ágil, \ 
+ayuda a los usuarios en su viaje digital. Almacenamiento vasto como la galaxia, guarda datos y secretos. Con cables y señales, el mundo virtual se entrelaza. \ 
+En el flujo de datos y circuitos, el ordenador revela su sabiduría, guiando a los usuarios en su búsqueda de información y comunicación. ¡Importante herramienta, el ordenador es, sí!
+<alumno> Dime la definción de teléfono móvil
 """
 prompt = f"""
 Te proporcionaré un texto en comillas triples Tu tarea es contestar en un estilo consecuente: \"\"\"{texto}\"\"\"
