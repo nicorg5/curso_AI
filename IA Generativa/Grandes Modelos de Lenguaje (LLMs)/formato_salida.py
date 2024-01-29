@@ -1,7 +1,7 @@
-# Destacar o referenciar partes destacadas del input. Ejemplo
+# Solicitar instrucciones de formateo de salida. Ejemplo
 
 from openai import OpenAI
-from dotenv import load_dotenv 
+from dotenv import load_dotenv
 import os
 
 # Cargar variables de entorno
@@ -13,9 +13,10 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_completion(prompt):
     completion = client.chat.completions.create(
-    model=engine,
+        model=engine,
         messages=[
-            {"role": "system", "content": "Eres un asistente, que realizas resúmenes concisos y proporcionas la ideas principales de un texto."}, 
+            {"role": "system", "content": "Eres un asistente, que realizas resúmenes concisos y proporcionas la ideas principales de un texto. \
+            Estas ideas las procporciones en una lista con puntos. Finalmente agregas una conclusión general a partir de la idea principal del texto."},
             {"role": "user", "content": f"{prompt}"}
         ]
     )
