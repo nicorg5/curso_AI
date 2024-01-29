@@ -32,3 +32,25 @@ Resume el texto delimitado por triples acentos graves en una sóla frase.
 """
 response = get_completion(prompt) 
 print(response.choices[0].message.content)
+
+
+# Ahora un ejemplo en el que el formato de salida va a ser un diccionario de Python
+def get_completion_json(prompt):
+    completion = client.chat.completions.create(
+        model=engine,
+        messages=[
+            {"role": "system", "content": "Eres un asistente, que realizas resúmenes concisos y proporcionas la ideas principales de un texto. \
+            Estas ideas las proporciones en un objeto diccionario de Python con la clave 'ideas', que contendrá un str con esas ideas. Finalmente agregas una conclusión \ general a partir de la idea principal del texto y lo agregas al objeto diccionario en una clave llamada 'conclusion' "},
+            {"role": "user", "content": f"{prompt}"}
+        ]
+    )
+    return completion
+
+text_2 = f"""
+La propiedad de una vivienda probablemente marca la diferencia en este gráfico, ya que las personas en algunos países prefieren ser propietarios de su casa en  \ lugar de alquilarla. Pero esto demuestra que la casa en la que vives no es realmente una inversión porque no puedes sacar provecho de ella a menos que la vendas y te \ mudes a un lugar más barato, o decidas alquilar. Y seamos realistas, la mayoría de las personas no buscan vender su casa sólo porque su valor ha aumentado. Es una \ lástima que por una vez estemos superando a Alemania en la tabla de riqueza, pero eso no significa que tengamos más dinero para gastar.
+"""
+prompt = f"""
+Resume el texto delimitado por triples acentos graves: ```{text_2}```
+"""
+response = get_completion_json(prompt) 
+print(response.choices[0].message.content)
