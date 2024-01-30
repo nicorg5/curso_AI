@@ -4,11 +4,11 @@ import os
 # Cargar variables de entorno
 load_dotenv()
 from openai import OpenAI
-# Configurar el motor de OpenAI
 
-engine = "gpt-3.5-turbo"
+# Configurar el motor de OpenAI
+#engine = "gpt-3.5-turbo"
 engine = "gpt-4"
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY")) 
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_completion(prompt):
     completion = client.chat.completions.create(
