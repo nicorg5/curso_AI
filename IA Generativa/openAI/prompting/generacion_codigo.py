@@ -25,4 +25,3 @@ prompt = ("Necesito un snippet de código en Python para realizar una consulta S
 
 respuesta = get_completion(prompt) 
 print(respuesta.choices[0].message.content)
-
