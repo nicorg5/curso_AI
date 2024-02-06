@@ -162,3 +162,7 @@ cython_debug/
 
 # Archivos .DS_Store (arhcivos ocultos que macO crea en cada carpeta para almacenar información sobre la apariencia y disposición de los iconos en esa carpeta)
 .DS_Store
+
+# Archivos muy pesados del proyecto de SPAM
+Machine Learning/Proyecto SPAM/X_data.pkl
+Machine Learning/Proyecto SPAM/trec07p/
