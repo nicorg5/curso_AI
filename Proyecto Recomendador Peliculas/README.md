@@ -1,11 +1,11 @@
 # Proyecto recomendador de películas
 
-En este proyecto se trabaja con dos conjuntos de datos: tmdb_5000_credits.csv y tmdb_5000_movies.csv para realizar un recomendador de películas.
+Este proyecto se centra en la creación de un recomendador de películas utilizando dos conjuntos de datos: tmdb_5000_credits.csv y tmdb_5000_movies.csv.
 
-Se realiza un EDA, en el que destaca un filtro para obtener las películas con un número elevado de votos, ya que así se descartan las películas 'poco valoradas', y la combinación de las columnas overview, cast, genres y keywords, ya que esta combinación va a ser el dato usado para ver la similitud entre películas.
+Comenzamos con un Análisis Exploratorio de Datos (EDA), donde se destaca un filtro para seleccionar las películas con un alto número de votos, descartando así aquellas "poco valoradas". Además, se combina la información de las columnas overview, cast, genres y keywords, ya que esta combinación servirá como base para medir la similitud entre las películas.
 
-En cuanto a proceso del lenguaje natural (NPL), se realiza una tokenización de las palabras y se eliminan las stopwords.
+En el procesamiento del lenguaje natural (NLP), se realiza una tokenización de las palabras y se eliminan las llamadas "stopwords".
 
-Dado que los conjuntos de datos no tienen una review de las películas, se generan dichas reviews con la API de OpenAI. Esta generación requiere bastante tiempo (en torno a 2 horas), por ello se guardan los resultados en un .csv para no tener que ejecutar esa generación siempre. Una vez se tienen estas reviews, se realiza un análisis de sentimiento con BERT.
+Dado que los conjuntos de datos no incluyen reseñas de las películas, se generan mediante la API de OpenAI. Esta tarea lleva bastante tiempo (alrededor de 2 horas), por lo que los resultados se guardan en un archivo CSV para evitar tener que generarlos cada vez. Posteriormente, se realiza un análisis de sentimientos utilizando BERT.
 
-Por último, se genera el sistema de recomendación con el método TFIDF combinado de un cosine_similitary para buscar las películas más parecidas a la introducida por el usuario y así poder ofrecerlas como recomendación. Esto se muestra a través de una interfaz de Gradio, en la que el usuario introduce o selecciona una película, además de elegir si quiere ver la review y el sentimiento de las 10 películas que se le recomendarán, y el output obtenido serán esas películas junto a la información extra si el usuario lo desea.
+Finalmente, se crea el sistema de recomendación utilizando el método TFIDF combinado con la similitud del coseno para encontrar películas similares a la que el usuario introduce. Esto se presenta a través de una interfaz de Gradio, donde el usuario puede seleccionar o introducir una película y elegir si desea ver la reseña y el sentimiento de las 10 películas recomendadas. El resultado son las películas recomendadas junto con la información adicional, si el usuario así lo desea.
