@@ -166,3 +166,6 @@ cython_debug/
 # Archivos muy pesados del proyecto de SPAM
 Machine Learning/Proyecto SPAM/X_data.pkl
 Machine Learning/Proyecto SPAM/trec07p/
+
+# Arhcivo muy pesado usado en PCA
+Machine Learning/Varios ML/PCA/TotalFeatures-ISCXFlowMeter.csv
